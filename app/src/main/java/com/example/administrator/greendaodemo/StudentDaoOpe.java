@@ -19,8 +19,7 @@ public class StudentDaoOpe {
      * @param stu
      */
     public static void insertData(Context context, Student stu) {
-
-        DbManager.getDaoSession(context).getStudentDao().insert(stu);
+        DbManager.getDaoSession(context,PASSWPRD).getStudentDao().insert(stu);
     }
 
 
@@ -34,7 +33,7 @@ public class StudentDaoOpe {
         if (null == list || list.size() <= 0) {
             return;
         }
-        DbManager.getDaoSession(context).getStudentDao().insertInTx(list);
+        DbManager.getDaoSession(context,PASSWPRD).getStudentDao().insertInTx(list);
     }
 
     /**
@@ -45,7 +44,7 @@ public class StudentDaoOpe {
      * @param student
      */
     public static void saveData(Context context, Student student) {
-        DbManager.getDaoSession(context).getStudentDao().save(student);
+        DbManager.getDaoSession(context,PASSWPRD).getStudentDao().save(student);
     }
 
     /**
@@ -55,7 +54,7 @@ public class StudentDaoOpe {
      * @param student 删除具体内容
      */
     public static void deleteData(Context context, Student student) {
-        DbManager.getDaoSession(context).getStudentDao().delete(student);
+        DbManager.getDaoSession(context,PASSWPRD).getStudentDao().delete(student);
     }
 
     /**
@@ -65,7 +64,7 @@ public class StudentDaoOpe {
      * @param id      删除具体内容
      */
     public static void deleteByKeyData(Context context, long id) {
-        DbManager.getDaoSession(context).getStudentDao().deleteByKey(id);
+        DbManager.getDaoSession(context,PASSWPRD).getStudentDao().deleteByKey(id);
     }
 
     /**
@@ -74,7 +73,7 @@ public class StudentDaoOpe {
      * @param context
      */
     public static void deleteAllData(Context context) {
-        DbManager.getDaoSession(context).getStudentDao().deleteAll();
+        DbManager.getDaoSession(context,PASSWPRD).getStudentDao().deleteAll();
     }
 
     /**
@@ -84,7 +83,7 @@ public class StudentDaoOpe {
      * @param student
      */
     public static void updateData(Context context, Student student) {
-        DbManager.getDaoSession(context).getStudentDao().update(student);
+        DbManager.getDaoSession(context,PASSWPRD).getStudentDao().update(student);
     }
 
     /**
@@ -94,7 +93,7 @@ public class StudentDaoOpe {
      * @return
      */
     public static List<Student> queryAll(Context context) {
-        QueryBuilder<Student> builder = DbManager.getDaoSession(context).getStudentDao().queryBuilder();
+        QueryBuilder<Student> builder = DbManager.getDaoSession(context,PASSWPRD).getStudentDao().queryBuilder();
 
         return builder.build().list();
     }
@@ -107,7 +106,7 @@ public class StudentDaoOpe {
      * @return
      */
     public static List<Student> queryForId(Context context, long id) {
-        QueryBuilder<Student> builder = DbManager.getDaoSession(context).getStudentDao().queryBuilder();
+        QueryBuilder<Student> builder = DbManager.getDaoSession(context,PASSWPRD).getStudentDao().queryBuilder();
         /**
          * 返回当前id的数据集合,当然where(这里面可以有多组，做为条件);
          * 这里build.list()；与where(StudentDao.Properties.Id.eq(id)).list()结果是一样的；

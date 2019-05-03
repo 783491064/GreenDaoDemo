@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         checkId=(Button) findViewById(R.id.check_id);
         initData();
         initListener();
+        DbManager.getInstance(this,"password");
 
     }
 
